@@ -7,6 +7,7 @@ import {
   UpdateDateColumn,
   ManyToOne,
 } from "typeorm";
+import { genderEnum } from "../common/constants";
 import { Course } from "./Course";
 
 @Entity()
@@ -23,15 +24,17 @@ export class Student extends BaseEntity {
   @Column()
   age: number;
 
-  @Column()
+  @Column({
+    enum: [genderEnum.masc, genderEnum.fem],
+  })
   gender: string;
 
   @ManyToOne(() => Course, (course: Course) => course.students)
   course: Course;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ select: false })
   createdAt: Date;
 
-  @UpdateDateColumn()
+  @UpdateDateColumn({ select: false })
   updatedAt: Date;
 }

@@ -21,12 +21,12 @@ export class User extends BaseEntity {
   @Column()
   email: string;
 
-  @Column()
+  @Column({ select: false })
   password: string;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ select: false })
   createdAt: Date;
 
-  @UpdateDateColumn()
+  @UpdateDateColumn({ select: false })
   updatedAt: Date;
 }

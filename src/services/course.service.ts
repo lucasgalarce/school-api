@@ -5,6 +5,7 @@ import { Course } from "../entities/Course";
 const coursesService = {
   async getCourses() {
     const options: FindManyOptions = {
+      relations: ["students"],
       order: {
         id: "ASC",
       },
