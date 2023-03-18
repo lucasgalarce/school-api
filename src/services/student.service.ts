@@ -1,5 +1,4 @@
 import { FindManyOptions } from "typeorm";
-import bcrypt from "bcrypt";
 
 import { Student } from "../entities/Student";
 
@@ -31,14 +30,11 @@ const studentService = {
     gender: string
   ) {
     const student = new Student();
-    // const hashedPass = await bcrypt.hash(password, 10);
 
     student.firstname = firstname;
     student.lastname = lastname;
     student.age = age;
     student.gender = gender;
-
-    // user.password = hashedPass;
 
     return student.save();
   },
