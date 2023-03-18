@@ -19,6 +19,10 @@ const userService = {
 
     return user.save();
   },
+
+  async getUserByEmail(email: string) {
+    return User.findOneBy({ email });
+  },
 };
 
 export default userService;
