@@ -1,10 +1,6 @@
-import dotenv from "dotenv";
-
 import app from "./app";
 import { PORT } from "./config";
 import { AppDataSource } from "./db";
-
-dotenv.config();
 
 async function main() {
   try {
