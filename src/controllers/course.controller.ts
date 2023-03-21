@@ -6,7 +6,8 @@ import { CourseBody } from "../types/Course.types";
 const courseController = {
   async getCourses(req: Request, res: Response) {
     try {
-      const courses = await courseService.getCourses();
+      const name = req.query.name as string;
+      const courses = await courseService.getCourses(name);
       return res.json(courses);
     } catch (error) {
       if (error instanceof Error) {

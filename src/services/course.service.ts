@@ -1,20 +1,26 @@
-import { FindManyOptions } from "typeorm";
+import { FindManyOptions, Like } from "typeorm";
 
 import { Course } from "../entities/Course";
 
 const coursesService = {
-  async getCourses() {
+  async getCourses(name?: string) {
     const options: FindManyOptions = {
       relations: ["students"],
       order: {
         id: "ASC",
       },
     };
+    if (name) options.where = { name: Like(`%${name}%`) };
     return Course.find(options);
   },
 
   async getCourseById(id: number) {
-    const course = await Course.findOneBy({ id });
+    const options = {
+      where: { id },
+      relations: ["students"],
+    };
+
+    const course = await Course.findOne(options);
     if (!course) throw new Error("Course not found");
     return course;
   },

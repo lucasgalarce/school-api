@@ -6,7 +6,8 @@ import { StudentBody } from "../types/Student.types";
 const studentController = {
   async getStudents(req: Request, res: Response) {
     try {
-      const students = await studentService.getStudents();
+      const firstname = req.query.firstname as string;
+      const students = await studentService.getStudents(firstname);
       return res.json(students);
     } catch (error) {
       if (error instanceof Error) {

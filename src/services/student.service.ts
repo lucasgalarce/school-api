@@ -1,15 +1,17 @@
-import { FindManyOptions } from "typeorm";
+import { FindManyOptions, Like } from "typeorm";
 
 import { Student } from "../entities/Student";
 
 const studentService = {
-  async getStudents() {
+  async getStudents(firstname?: string) {
     const options: FindManyOptions = {
       relations: ["course"],
       order: {
         id: "ASC",
       },
     };
+    if (firstname) options.where = { firstname: Like(`%${firstname}%`) };
+
     return Student.find(options);
   },
 
