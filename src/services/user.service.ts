@@ -23,6 +23,10 @@ const userService = {
   async getUserByEmail(email: string) {
     return User.findOneBy({ email });
   },
+
+  async countUsers() {
+    return await User.count();
+  },
 };
 
 export default userService;
