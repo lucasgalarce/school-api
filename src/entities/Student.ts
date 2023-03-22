@@ -6,6 +6,8 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   ManyToOne,
+  ManyToMany,
+  JoinTable,
 } from "typeorm";
 import { genderEnum } from "../common/constants";
 import { Course } from "./Course";
@@ -31,6 +33,10 @@ export class Student extends BaseEntity {
 
   @ManyToOne(() => Course, (course: Course) => course.students)
   course: Course;
+
+  @ManyToMany(() => Student)
+  @JoinTable()
+  siblings: Student[];
 
   @CreateDateColumn({ select: false })
   createdAt: Date;

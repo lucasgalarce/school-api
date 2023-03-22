@@ -1,11 +1,11 @@
-import { FindManyOptions, Like } from "typeorm";
+import { FindManyOptions, FindOneOptions, Like } from "typeorm";
 
 import { Student } from "../entities/Student";
 
 const studentService = {
   async getStudents(firstname?: string) {
     const options: FindManyOptions = {
-      relations: ["course"],
+      relations: ["course", "siblings"],
       order: {
         id: "ASC",
       },
@@ -16,7 +16,13 @@ const studentService = {
   },
 
   async getStudentById(id: number) {
-    const student = await Student.findOneBy({ id });
+    const options: FindOneOptions = {
+      relations: ["course", "siblings"],
+      where: {
+        id,
+      },
+    };
+    const student = await Student.findOne(options);
     if (!student) throw new Error("Student not found");
     return student;
   },
@@ -45,6 +51,22 @@ const studentService = {
     const student = await Student.findOneBy({ id });
     if (!student) throw new Error("Student not found");
 
+    if (payload.siblingId) {
+      const options: FindOneOptions = {
+        relations: ["siblings"],
+        where: {
+          id: payload.siblingId,
+        },
+      };
+      const newSibling = await Student.findOne(options);
+      if (!newSibling) throw new Error("Sibling not found");
+      student.siblings = [newSibling];
+      student.save();
+
+      newSibling.siblings = [student];
+      newSibling.save();
+      return;
+    }
     await Student.update({ id }, payload);
     return student;
   },
