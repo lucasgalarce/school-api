@@ -9,6 +9,10 @@ const userController = {
     await userService.createUser(firstname, lastname, email, password);
     return res.status(204).send();
   },
+  async hello(req: Request<unknown, unknown, UserBody>, res: Response) {
+    console.log("here");
+    return res.send({ msg: "hello" });
+  },
 };
 
 export default userController;

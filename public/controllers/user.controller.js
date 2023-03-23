@@ -21,5 +21,11 @@ const userController = {
             return res.status(204).send();
         });
     },
+    hello(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log("here");
+            return res.send({ msg: "hello" });
+        });
+    },
 };
 exports.default = userController;
