@@ -15,15 +15,21 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/students",
+							"raw": "http://localhost:{{port}}/api/students?firstname=",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "{{port}}",
 							"path": [
 								"api",
 								"students"
+							],
+							"query": [
+								{
+									"key": "firstname",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -35,16 +41,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/students/2",
+							"raw": "http://localhost:{{port}}/api/students/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "{{port}}",
 							"path": [
 								"api",
 								"students",
-								"2"
+								"1"
 							],
 							"query": [
 								{
@@ -60,6 +66,16 @@
 				{
 					"name": "Add Student",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoiV2VkIE1hciAyMiAyMDIzIDIwOjA2OjA0IEdNVC0wMzAwIChob3JhIGVzdMOhbmRhciBkZSBBcmdlbnRpbmEpIiwiZW1haWwiOiJhZG1pbkB0ZXN0LmNvbSIsImlhdCI6MTY3OTUyNjM2NH0.QaPU57gxXVFaZ6urXXETEehv7H1xxd9yXAS-7yDMHAI",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -70,7 +86,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"firstname\": \"eve\",\r\n    \"lastname\": \"galarce\",\r\n    \"age\": 22,\r\n    \"gender\": \"fem\"\r\n}",
+							"raw": "{\r\n    \"firstname\": \"nico\",\r\n    \"lastname\": \"soroka\",\r\n    \"age\": 28,\r\n    \"gender\": \"masc\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -78,12 +94,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/students",
+							"raw": "http://localhost:{{port}}/api/students",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "{{port}}",
 							"path": [
 								"api",
 								"students"
@@ -102,11 +118,21 @@
 				{
 					"name": "Update Student",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoiV2VkIE1hciAyMiAyMDIzIDE5OjM1OjA4IEdNVC0wMzAwIChob3JhIGVzdMOhbmRhciBkZSBBcmdlbnRpbmEpIiwiZW1haWwiOiJhZG1pbkB0ZXN0LmNvbSIsImlhdCI6MTY3OTUyNDUwOH0.Q41x575hw4ZhUEmd3JRgb-NKweGL7LhbLxXEyWkkCw8",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"course\": 1\r\n}",
+							"raw": "{\r\n    \"course\": \"1\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -114,12 +140,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/students/3",
+							"raw": "http://localhost:{{port}}/api/students/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "{{port}}",
 							"path": [
 								"api",
 								"students",
@@ -151,12 +177,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/students/22",
+							"raw": "http://localhost:{{port}}/api/students/22",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "{{port}}",
 							"path": [
 								"api",
 								"students",
@@ -199,12 +225,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/users",
+							"raw": "http://localhost:{{port}}/api/users",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "{{port}}",
 							"path": [
 								"api",
 								"users"
@@ -231,12 +257,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/courses",
+							"raw": "http://localhost:{{port}}/api/courses",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "{{port}}",
 							"path": [
 								"api",
 								"courses"
@@ -251,16 +277,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/courses/2",
+							"raw": "http://localhost:{{port}}/api/courses/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "{{port}}",
 							"path": [
 								"api",
 								"courses",
-								"2"
+								"1"
 							],
 							"query": [
 								{
@@ -276,6 +302,16 @@
 				{
 					"name": "Add Course",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoiV2VkIE1hciAyMiAyMDIzIDIwOjA2OjA0IEdNVC0wMzAwIChob3JhIGVzdMOhbmRhciBkZSBBcmdlbnRpbmEpIiwiZW1haWwiOiJhZG1pbkB0ZXN0LmNvbSIsImlhdCI6MTY3OTUyNjM2NH0.QaPU57gxXVFaZ6urXXETEehv7H1xxd9yXAS-7yDMHAI",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -286,7 +322,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"4 B\"\r\n}",
+							"raw": "{\r\n    \"name\": \"6B\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -294,12 +330,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/courses",
+							"raw": "http://localhost:{{port}}/api/courses",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "{{port}}",
 							"path": [
 								"api",
 								"courses"
@@ -330,12 +366,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/courses/1",
+							"raw": "http://localhost:{{port}}/api/courses/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "{{port}}",
 							"path": [
 								"api",
 								"courses",
@@ -367,12 +403,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/courses/22",
+							"raw": "http://localhost:{{port}}/api/courses/22",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "{{port}}",
 							"path": [
 								"api",
 								"courses",
@@ -409,12 +445,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/auth/token",
+							"raw": "http://localhost:{{port}}/api/auth/token",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "{{port}}",
 							"path": [
 								"api",
 								"auth",
@@ -423,8 +459,68 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "me",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@test.com\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/api/auth/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "port",
+			"value": "8100",
+			"type": "string"
 		}
 	]
 }
