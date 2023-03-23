@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node dist/index.js",
+    "start": "tsc && node public/index.js",
     "dev": "ts-node-dev --respawn src/index.ts",
-    "build": "rimraf dist && tsc",
+    "build": "rimraf public && tsc",
     "ts.check": "tsc --project tsconfig.json",
-    "add-build": "git add dist"
+    "add-build": "git add public"
   },
   "pre-commit": [
     "ts.check",
