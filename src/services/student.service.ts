@@ -1,6 +1,7 @@
 import { FindManyOptions, FindOneOptions, Like } from "typeorm";
 
 import { Student } from "../entities/Student";
+import coursesService from "./course.service";
 
 const studentService = {
   async getStudents(firstname?: string) {
@@ -35,7 +36,8 @@ const studentService = {
     firstname: string,
     lastname: string,
     age: number,
-    gender: string
+    gender: string,
+    courseId?: number
   ) {
     const student = new Student();
 
@@ -43,6 +45,11 @@ const studentService = {
     student.lastname = lastname;
     student.age = age;
     student.gender = gender;
+
+    if (courseId) {
+      const course = await coursesService.getCourseById(courseId);
+      student.course = course;
+    }
 
     return student.save();
   },

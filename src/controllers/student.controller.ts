@@ -32,8 +32,14 @@ const studentController = {
     req: Request<unknown, unknown, StudentBody>,
     res: Response
   ) {
-    const { firstname, lastname, age, gender } = req.body;
-    await studentService.createStudent(firstname, lastname, age, gender);
+    const { firstname, lastname, age, gender, courseId } = req.body;
+    await studentService.createStudent(
+      firstname,
+      lastname,
+      age,
+      gender,
+      courseId
+    );
     return res.status(204).send();
   },
 

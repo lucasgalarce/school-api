@@ -3,4 +3,5 @@ export type StudentBody = {
   lastname: string;
   age: number;
   gender: string;
+  courseId?: number;
 };
