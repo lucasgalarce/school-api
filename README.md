@@ -6,6 +6,18 @@ This is an example of how you may give instructions on setting up your project l
 
 [node](https://nodejs.org/es/)
 
+## .env vars 🔧
+
+You have a .env.template with next variables:
+
+```
+PORT = 8100
+JWT_SECRET_KEY = secret
+DB_USERNAME = yourpostgres username
+DB_PASSWORD = yourpostgres password
+DB_NAME = yourpostgres dbname
+```
+
 ## Installation 🔧
 
 Clone the repo
@@ -21,10 +33,11 @@ npm install
 npm start
 ```
 
-## Deploy 📦
+## Start
 
-This page is being deployed in [heroku]()
+You can login in the app with the following credentials:
 
-## Builded with 🛠️
-
-- Node.js - A JavaScript runtime built on Chrome's V8 JavaScript engine.
+```
+email: "admin@test.com",
+password: "123"
+```
