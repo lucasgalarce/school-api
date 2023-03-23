@@ -17,7 +17,7 @@ const coursesService = {
   async getCourseById(id: number) {
     const options = {
       where: { id },
-      relations: ["students"],
+      relations: ["students", "students.siblings"],
     };
 
     const course = await Course.findOne(options);
